@@ -1,0 +1,33 @@
+{
+    "competition": "Debugging Competition (for PG students)",
+    "coding_questions": [
+      {
+        "question_number": 1,
+        "question": "Identify and fix the error in the following C code:",
+        "code_c": "#include <stdio.h>\n\nint main() {\n    int x = 10;\n    int y = 0;\n    for (int i = 0; i <= x; i++) {\n        y += i;\n    }\n    printf(\"The sum of numbers from 1 to %d is: %d\", x, y);\n    return 0;\n}",
+        "code_cpp": "#include <iostream>\n\nint main() {\n    int x = 10;\n    int y = 0;\n    for (int i = 0; i <= x; i++) {\n        y += i;\n    }\n    std::cout << \"The sum of numbers from 1 to \" << x << \" is: \" << y;\n    return 0;\n}",
+        "code_java": "public class SumNumbers {\n    public static void main(String[] args) {\n        int x = 10;\n        int y = 0;\n        for (int i = 0; i <= x; i++) {\n            y += i;\n        }\n        System.out.printf(\"The sum of numbers from 1 to %d is: %d\", x, y);\n    }\n}"
+      },
+      {
+        "question_number": 2,
+        "question": "Debug the following C code to find the factorial of a number:",
+        "code_c": "#include <stdio.h>\n\nint main() {\n    int n = 5;\n    int fact = 1;\n    for (int i = 1; i <= n; ++i) {\n        fact *= i;\n    }\n    printf(\"Factorial of %d is: %d\", n, fact);\n    return 0;\n}"
+      },
+      {
+        "question_number": 3,
+        "question": "Correct the Java program to calculate the Fibonacci series up to n terms:",
+        "code_java": "public class Fibonacci {\n    public static void main(String[] args) {\n        int n = 10;\n        int a = 0, b = 1;\n        System.out.println(\"Fibonacci series up to \" + n + \" terms:\");\n        for (int i = 1; i <= n; i++) {\n            System.out.println(a);\n            int temp = a + b;\n            a = b;\n            b = temp;\n        }\n    }\n}"
+      },
+      {
+        "question_number": 4,
+        "question": "Fix the error in the following C++ code to sort an array of integers in ascending order:",
+        "code_cpp": "#include <iostream>\n#include <algorithm>\n\nusing namespace std;\n\nint main() {\n    int arr[] = {5, 2, 7, 1, 8};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    sort(arr, arr + n);\n    cout << \"Sorted array: \";\n    for (int i = 0; i < n; i++) {\n        cout << arr[i] << \" \";\n    }\n    return 0;\n}"
+      },
+      {
+        "question_number": 5,
+        "question": "Debug the Java code to generate the nth term of the Fibonacci series:",
+        "code_java": "public class Fibonacci {\n    public static void main(String[] args) {\n        int n = 10;\n        int a = 0, b = 1;\n        for (int i = 1; i <= n; i++) {\n            System.out.println(a);\n            int temp = a + b;\n            a = b;\n            b = temp;\n        }\n    }\n}"
+      }
+    ]
+  }
+  

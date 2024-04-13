@@ -1,0 +1,105 @@
+{
+    "questions": [
+      {
+        "question": "What does HTML stand for?",
+        "options": ["Hyper Text Markup Language", "Hyperlinks and Text Markup Language", "Home Tool Markup Language", "Hyper Tool Markup Language"],
+        "solution": "Hyper Text Markup Language"
+      },
+      {
+        "question": "Which of the following is not a programming language?",
+        "options": ["Java", "Python", "HTML", "C++"],
+        "solution": "HTML"
+      },
+      {
+        "question": "What does CSS stand for?",
+        "options": ["Cascading Style Sheets", "Computer Style Sheets", "Colorful Style Sheets", "Creative Style Sheets"],
+        "solution": "Cascading Style Sheets"
+      },
+      {
+        "question": "What is the output of the following code snippet: \n\n#include <stdio.h>\n\nint main() {\n    printf(\"%d\", sizeof(int));\n    return 0;\n}",
+        "options": ["2", "4", "8", "Depends on the system architecture"],
+        "solution": "Depends on the system architecture"
+      },
+      {
+        "question": "Which data structure follows the Last In First Out (LIFO) principle?",
+        "options": ["Queue", "Stack", "Tree", "Linked List"],
+        "solution": "Stack"
+      },
+      {
+        "question": "In which language is Python written?",
+        "options": ["C", "Java", "Python", "Assembly"],
+        "solution": "C"
+      },
+      {
+        "question": "What is the output of the following code snippet: \n\nfor i in range(5):\n    print(i)",
+        "options": ["0 1 2 3 4", "1 2 3 4 5", "0 1 2 3", "1 2 3 4"],
+        "solution": "0 1 2 3 4"
+      },
+      {
+        "question": "Which of the following is not a programming paradigm?",
+        "options": ["Imperative", "Functional", "Procedural", "Logical"],
+        "solution": "Procedural"
+      },
+      {
+        "question": "What is the output of the following code snippet: \n\nint x = 5;\nint y = x++ + ++x;\nprintf(\"%d\", y);",
+        "options": ["10", "11", "12", "Undefined behavior"],
+        "solution": "Undefined behavior"
+      },
+      {
+        "question": "Which sorting algorithm has the best time complexity in the worst-case scenario?",
+        "options": ["Bubble Sort", "Insertion Sort", "Selection Sort", "Merge Sort"],
+        "solution": "Merge Sort"
+      },
+      {
+        "question": "What is the full form of SQL?",
+        "options": ["Simple Query Language", "Structured Question Language", "Structured Query Language", "Simple Question Language"],
+        "solution": "Structured Query Language"
+      },
+      {
+        "question": "What is the output of the following code snippet: \n\nprint(\"Hello\" * 3)",
+        "options": ["HelloHelloHello", "Hello Hello Hello", "Hello\nHello\nHello", "Syntax error"],
+        "solution": "HelloHelloHello"
+      },
+      {
+        "question": "What is the term used for a single 'if' or 'else if' block?",
+        "options": ["Condition", "Clause", "Statement", "Branch"],
+        "solution": "Branch"
+      },
+      {
+        "question": "What is the output of the following code snippet: \n\nint x = 5;\nprintf(\"%d\", x >> 1);",
+        "options": ["2", "2.5", "10", "5"],
+        "solution": "2"
+      },
+      {
+        "question": "Which of the following is not a JavaScript framework?",
+        "options": ["React", "Angular", "Vue", "Bootstrap"],
+        "solution": "Bootstrap"
+      },
+      {
+        "question": "What is the output of the following code snippet: \n\nprint(10 == 10.0)",
+        "options": ["True", "False", "10", "10.0"],
+        "solution": "True"
+      },
+      {
+        "question": "Which of the following is a dynamic programming language?",
+        "options": ["Java", "C++", "Python", "C#"],
+        "solution": "Python"
+      },
+      {
+        "question": "What is the output of the following code snippet: \n\nint arr[] = {1, 2, 3};\nprintf(\"%d\", arr[3]);",
+        "options": ["1", "2", "3", "Garbage value"],
+        "solution": "Garbage value"
+      },
+      {
+        "question": "Which programming language is often used for web development and server-side scripting?",
+        "options": ["Java", "C++", "Python", "JavaScript"],
+        "solution": "JavaScript"
+      },
+      {
+        "question": "What is the output of the following code snippet: \n\nprint(type('Hello'))",
+        "options": ["str", "int", "float", "list"],
+        "solution": "str"
+      }
+    ]
+  }
+  
