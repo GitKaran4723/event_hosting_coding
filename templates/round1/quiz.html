@@ -68,9 +68,10 @@
             display: none;
         }
         .timer {
-            text-align: left;
+            text-align: right;
             margin-bottom: 20px;
             font-size: 18px;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -78,7 +79,7 @@
     <div class="container">
         <div class="team-name-full"><span class="team-name">{{ team_name }}</span> - SOLVE THIS QUIZ</div>
         <h1>Quiz Questions</h1>
-        <div class="timer" id="timer"></div>
+        <div class="timer" id="timer" ></div>
         
         <form id="quiz-form" action="/submit_quiz" method="POST">
             {% for question in questions %}
@@ -108,26 +109,38 @@
         var questions = document.querySelectorAll('.question-container');
         var responses = Array(questions.length).fill(null); // Initialize responses array with null values
 
-        // Timer countdown
-        var timerDisplay = document.getElementById('timer');
-        var end_time = new Date("{{ end_time }}"); // Parse the end time from the template
-
-        function setTime() {
+        // Calculate and display the time remaining until the test starts
+        function calculateTimeRemaining() {
+            // Get the current time and the start time of the test
+            var startTime = new Date("{{ round1_end_time }}");
             var currentTime = new Date();
-            var timeDifference = end_time.getTime() - currentTime.getTime();
+            
+            // Calculate the time difference in milliseconds
+            var timeDifference = startTime - currentTime;
+            
+            // If the time is up, enable the Start Quiz button
             if (timeDifference <= 0) {
-                clearInterval(timerInterval);
                 submitQuiz();
-                return;
+
+                return; 
             }
+            
+            // Calculate the minutes and seconds remaining
             var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-            timerDisplay.textContent = (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+        
+            // Display the time remaining
+            document.getElementById("timer").innerHTML = "Remaining:  " + minutes + " : " + seconds ;
         }
+        
+    
+        // Call the function to start calculating the time remaining
+        calculateTimeRemaining();
+        
 
-        var timerInterval = setInterval(setTime, 1000);
-        setTime(); // Call setTime once initially to avoid delay in updating the timer display
-
+        // Call the function to calculate and display the time remaining every second
+        setInterval(calculateTimeRemaining, 1000);
+        
         function showQuestion(index) {
             questions.forEach(function(question, idx) {
                 if (idx === index) {

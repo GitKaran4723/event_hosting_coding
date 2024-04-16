@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Dashboard - debugging</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,53 +12,156 @@
             padding: 0;
         }
         .container {
-            max-width: 800px;
+            max-width: 600px;
             margin: 20px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #333;
             text-align: center;
+        }
+        h1, h3 {
+            color: #333;
             margin-bottom: 20px;
         }
         .team-name {
             font-size: 24px;
             font-weight: bold;
-            text-align: center;
             margin-bottom: 20px;
         }
         .start-contest {
-            display: block;
-            width: 200px;
-            margin: 0 auto;
-            padding: 10px;
-            text-align: center;
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
             background-color: #007bff;
             color: #fff;
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s;
+            cursor: pointer;
         }
         .start-contest:hover {
             background-color: #0056b3;
+        }
+        .instructions {
+            margin-top: 40px;
+            text-align: left;
+        }
+        .instructions p {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        .logout-form {
+            margin-top: 20px;
+            text-align: right;
+        }
+        .logout-btn {
+            padding: 8px 16px;
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .logout-btn:hover {
+            background-color: #c82333;
+        }
+        .timer {
+            font-size: 20px;
+            margin-top: 30px;
+            color: red;
+        }
+        #start-quiz-btn{
+            background-color: #808080;
+            color: #fff;
+            cursor: not-allowed;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Congradulations on selectiong to round 3</h1>
-        <h3>We want you to be the winner "All the best"</h3>
+        <div class="logout-form">
+            <form action="/logout2" method="POST">
+                <button class="logout-btn" type="submit">Logout</button>
+            </form>
+        </div>
+        <h1>Congradulations to be selected for Round 2</h1>
+        <h3>We wish you the best of luck!</h3>
         <div class="team-name">{{ team_name }}</div>
-        <form action="/code3">
-            <input class="start-contest" type="submit" value="Start Contest">
-        </form>
+        <div class="timer" id="timer"></div>
         
-        <form action="/logout3" method="POST">
-            <input type="submit" value="Logout">
-        </form>
+        <div class="instructions">
+            <h3>Instructions:</h3>
+            <p>1. You will have a limited time to complete the quiz.</p>
+            <p>2. Read each question carefully and select the correct answer.</p>
+            <p>3. Once you start the quiz, make sure to complete it without refreshing the page.</p>
+            <p>4. Click the "Start Debugging" button below to begin.</p>
+        </div>
+
+        <!-- Timer to show when the test starts -->
+        <div class="timer" id="timer"></div>
+
+        <div class="checkbox-container">
+            <!-- Checkbox for terms and conditions -->
+            <input type="checkbox" id="agree-checkbox"> I have read and understood the instructions.
+        </div>
+        
+        <!-- Button to start the quiz -->
+        <button id="start-quiz-btn" class="start-contest" onclick="startdebug()">Start Debugging</button>
     </div>
+
+    <script>
+        // Function to calculate and display the time remaining
+        function calculateTimeRemaining() {
+            // Get the current time and the start time of the test
+            var startTime = new Date("{{ round2_start_time }}");
+            var currentTime = new Date();
+            
+            // Calculate the time difference in milliseconds
+            var timeDifference = startTime - currentTime;
+    
+            if (timeDifference <= 0) {
+                document.getElementById("timer").style.color = "green";
+                document.getElementById("timer").innerHTML = "Test has started!";
+                if (document.getElementById('agree-checkbox').checked) {
+                    document.getElementById("start-quiz-btn").disabled = false;
+                    document.getElementById("start-quiz-btn").style.backgroundColor = "#007bff";
+                    document.getElementById("start-quiz-btn").style.cursor = "pointer";
+                }
+                else{
+                    document.getElementById("start-quiz-btn").disabled = true;
+                    document.getElementById("start-quiz-btn").style.backgroundColor = "#808080";
+                    document.getElementById("start-quiz-btn").style.cursor = "not-allowed";
+                }   
+                return; 
+            }
+    
+            // Calculate the minutes and seconds remaining
+            var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+    
+            // Display the time remaining
+            document.getElementById("timer").innerHTML = "Debugging starts in " + minutes + " m and " + seconds + " s";
+        }
+    
+        function startdebug() {
+            // Check if the checkbox is checked
+            if (document.getElementById('agree-checkbox').checked) {
+                // Redirect to the quiz page
+                window.location.href = '/debugging';
+            } else {
+                // Display a popup to agree to terms and conditions
+                alert('Please read and understand the instructions before starting the quiz.');
+            }
+        }
+    
+        // Call the function to start calculating the time remaining
+        calculateTimeRemaining();
+    
+        // Call the function to calculate and display the time remaining every second
+        setInterval(calculateTimeRemaining, 1000);
+    </script>
+    
 </body>
 </html>

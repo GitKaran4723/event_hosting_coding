@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score01</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        table {
+            width: 80%;
+            margin: 50px auto;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        .green {
+            background-color: lightgreen;
+        }
+        h1{
+            text-align: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>Round 01 Scores</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Team</th>
+                <th>Score</th>
+                <th>Time Submitted</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in scores %}
+            <tr {% if loop.index <= 10 %}class="green"{% endif %}>
+                <td>{{ row[1] }}</td> <!-- Assuming the team name is in the first column -->
+                <td>{{ row[3] }}</td> <!-- Assuming the score is in the second column -->
+                <td>{{ row[4] }}</td> <!-- Assuming the score is in the second column -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script>
+        console.log({{scores}})
+    </script>
+</body>
+</html>

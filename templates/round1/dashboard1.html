@@ -105,7 +105,7 @@
     </div>
 
     <script>
-        console.log("{{ start_time }}")
+        console.log("{{ round1_start_time }}")
         // Function to start the quiz
         function startQuiz() {
             // Check if the checkbox is checked
@@ -122,7 +122,7 @@
         // Calculate and display the time remaining until the test starts
         function calculateTimeRemaining() {
             // Get the current time and the start time of the test
-            var startTime = new Date("{{ start_time }}");
+            var startTime = new Date("{{ round1_start_time }}");
             var currentTime = new Date();
             
             // Calculate the time difference in milliseconds

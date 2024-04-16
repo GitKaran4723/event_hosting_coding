@@ -60,8 +60,8 @@
     </div>
 
     <script>
-        var round1StartTime = new Date('2024-04-07T07:25:00');
-        var round2StartTime = new Date('2024-04-19T14:30:00');
+        var round1StartTime = new Date('2024-04-19T07:25:00');
+        var round2StartTime = new Date('2024-04-14T14:30:00');
         var round3StartTime = new Date('2024-04-20T22:00:00');
 
         function updateTimer(elementId, startTime, buttonId) {
@@ -93,15 +93,12 @@
             switch(roundNumber) {
                 case 1:
                     window.location.href = "round1login";
-                    // Add your logic for starting Round 1 here
                     break;
                 case 2:
-                    alert("Starting Round 2");
-                    // Add your logic for starting Round 2 here
+                    window.location.href = "round2login";
                     break;
                 case 3:
                     window.location.href = "round3login";
-                    // Add your logic for starting Round 3 here
                     break;
                 default:
                     alert("Invalid round number");
