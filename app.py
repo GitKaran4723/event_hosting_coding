@@ -19,16 +19,16 @@ mysql_connection = mysql.connector.connect(
 fest_start_time = datetime(2024, 4, 19, 9, 0)
 
 #round1
-round1_start_time = datetime(2024, 4, 14, 11, 55)
-round1_end_time = datetime(2024, 4, 14, 11, 59)
+round1_start_time = datetime(2024, 4, 17, 14, 37)
+round1_end_time = datetime(2024, 4, 17, 14, 40)
 
 #round2
-round2_start_time = datetime(2024, 4, 14, 19, 24)
-round2_end_time = datetime(2024, 4, 14, 19, 30)
+round2_start_time = datetime(2024, 4, 17, 14, 42)
+round2_end_time = datetime(2024, 4, 17, 14, 45)
 
 #round3
-round3_start_time = datetime(2024, 4, 20, 10, 30)
-round3_end_time = datetime(2024, 4, 20, 10, 30)
+round3_start_time = datetime(2024, 4, 17, 14, 47)
+round3_end_time = datetime(2024, 4, 17, 14, 51)
 
 
 @app.route('/')
@@ -218,7 +218,7 @@ with open('questions3.json', 'r') as file:
 @app.route('/code3')
 def code3():
     if 'team_name' in session:
-        return render_template('round3/code3.html', team_name=session['team_name'], questions=data['questions'])
+        return render_template('round3/code3.html', team_name=session['team_name'], questions=data3['questions'])
     else:
         return redirect('/login3')
 
@@ -323,7 +323,7 @@ def submit():
             try:
                 output, error = execute_and_check_code_with_input(code, language, inputs)
             except Exception as e:
-                return str(e)+"  to deal with this : Click on run button", 400  # Return error message with status code 400 (Bad Request)
+                return str(e)+" to deal with this : Click on run button", 400  # Return error message with status code 400 (Bad Request)
             # Check if there's any error
             if error:
                 return error, 400  # Return error message with status code 400 (Bad Request)
@@ -371,7 +371,7 @@ def run_with_input():
 def execute_and_check_code_with_input(code, language, inputs=None):
     team_name=session['team_name']
 
-    if ("KARAN" in code):
+    if ("KARAN" or "C:/" in code):
         
         return None, "Dont try this here! you are noticed.."
     
@@ -542,16 +542,6 @@ def execute_and_check_java(team_name, code, inputs=None, timeout=10):
         if os.path.exists(f"{class_file_name}.class"):
             os.remove(f"{class_file_name}.class")
 
-
-
-
-
-
-
-
-
-
-
 @app.route('/give1')
 def score():
     try:
@@ -578,8 +568,6 @@ def score():
     
     except Exception as e:
         return render_template('submitted.html')
-
-
 
 if __name__ == "__main__":
     # Run the Flask app on localhost (local system)
