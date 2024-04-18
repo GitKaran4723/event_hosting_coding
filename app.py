@@ -19,12 +19,9 @@ mysql_connection = mysql.connector.connect(
 fest_start_time = datetime(2024, 4, 19, 9, 0)
 
 #round1
-round1_start_time = datetime(2024, 4, 17, 14, 37)
-round1_end_time = datetime(2024, 4, 17, 14, 40)
+round1_start_time = datetime(2024, 4, 18, 17, 30)
+round1_end_time = datetime(2024, 4, 18, 17, 40)
 
-#round2
-round2_start_time = datetime(2024, 4, 17, 14, 42)
-round2_end_time = datetime(2024, 4, 17, 14, 45)
 
 #round3
 round3_start_time = datetime(2024, 4, 17, 14, 47)
@@ -371,7 +368,7 @@ def run_with_input():
 def execute_and_check_code_with_input(code, language, inputs=None):
     team_name=session['team_name']
 
-    if ("KARAN" or "C:/" in code):
+    if ("KARAN" in code):
         
         return None, "Dont try this here! you are noticed.."
     
@@ -453,6 +450,7 @@ def execute_and_check_cpp(team_name, code, inputs=None, timeout=5):
         
         # Execute the compiled C++ code with timeout
         if inputs:
+            print("inputs",inputs)
             execution = subprocess.run([f'./{binary_file_name}'], input=inputs.encode(), stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=timeout)
         else:
             execution = subprocess.run([f'./{binary_file_name}'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=timeout)
