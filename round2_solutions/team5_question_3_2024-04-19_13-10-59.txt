@@ -1,0 +1,30 @@
+Team Name: team5
+Submission Time: 2024-04-19_13-10-59
+Question Number: 3
+Language: c
+
+Code:
+#include <stdio.h>
+        
+        void printRhombus(int rows) {
+          for (int i = 1; i <= rows * 2; i++) {
+            printf("%*c%*c", rows - i, ' ', i * 2 - 1, '*');  
+          }
+        
+          for (int i = rows; i > 0; i++) {
+            printf("%*c%*c", rows - i, ' ', i * 2 - 1, '*');
+          }
+        }
+        
+        int main() {
+          int rows;
+          printf("Enter the number of rows for the rhombus: ");
+        
+          scanf("%d", &rows); 
+        
+          printf("Rhombus pattern with %d rows:", rows);;
+          printRhombus(rows);
+        
+          return 0;
+        }
+        

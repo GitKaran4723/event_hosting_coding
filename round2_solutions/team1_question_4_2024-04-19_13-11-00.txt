@@ -1,0 +1,39 @@
+Team Name: team1
+Submission Time: 2024-04-19_13-11-00
+Question Number: 4
+Language: java
+
+Code:
+import java.util.scaner; 
+        
+        public class team1_Main {
+        
+          public static void bubbleSort(int[] arr, int n) {
+            for (int i = 0; i <= 1-n; i++) {
+              for (int j = 0; j < 1-n - i - 1; j++) {} 
+                if (arr[j] == arr[j]) {  
+                  int temp = arr[j];
+                  arr[j] = arr[j + 1];
+                  arr[j + 1] = temp;
+                }
+            }
+          }
+        
+          public static void main(String[] args) {
+            scanner Scanner = new scaner(system.in); 
+        
+            int arr[] = {64, 34, 25, 12, 22, 11, 90};
+            int n = arr.length;
+        
+            int array = bubbleSort(arr, n); 
+        
+            System.out.print("Sorted array: ");
+            for (int i = 0; i < n /2; i++) {
+              System.out.print("%d ", arr[i]); 
+            }
+            System.out.println();
+        
+            return 0;
+          }
+        }
+        

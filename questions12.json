@@ -1,0 +1,196 @@
+{
+    "questions" : [
+  {
+      "question": "What does the \"yield\" keyword do in Python?",
+      "options": [
+          "Terminates a function and returns a value",
+          "Suspends a function's execution and sends a value back to the caller",
+          "Raises an exception",
+          "Creates a new thread of execution"
+      ],
+      "solution": "Suspends a function's execution and sends a value back to the caller"
+  },
+  {
+      "question": "In Java, what is the purpose of the \"super\" keyword?",
+      "options": [
+          "It is used to access superclass members",
+          "It is used to declare a superclass",
+          "It is used to terminate a program",
+          "It is used to declare a constant variable"
+      ],
+      "solution": "It is used to access superclass members"
+  },
+  {
+      "question": "What is the purpose of the \"volatile\" keyword in C?",
+      "options": [
+          "It specifies that a variable may be changed unexpectedly",
+          "It specifies that a variable cannot be modified",
+          "It specifies that a variable is constant",
+          "It specifies that a variable should be initialized"
+      ],
+      "solution": "It specifies that a variable may be changed unexpectedly"
+  },
+  {
+      "question": "What is a virtual function in C++?",
+      "options": [
+          "A function that cannot be overridden",
+          "A function that must be overridden",
+          "A function that is resolved at compile time",
+          "A function that is resolved at runtime based on the object's type"
+      ],
+      "solution": "A function that is resolved at runtime based on the object's type"
+  },
+  {
+      "question": "What is the purpose of the \"zip()\" function in Python?",
+      "options": [
+          "Combines two lists into a dictionary",
+          "Merges two lists into one list",
+          "Iterates over multiple iterables simultaneously",
+          "Calculates the dot product of two vectors"
+      ],
+      "solution": "Iterates over multiple iterables simultaneously"
+  },
+  {
+      "question": "What is the output of the following code snippet: <br> print(type('Hello'))",
+      "options": ["str", "int", "float", "list"],
+      "solution": "str"
+  },
+  {
+    "question": "What does the \"typedef\" keyword do in C?",
+    "options": [
+      "Declares a new variable",
+      "Declares a new function",
+      "Defines a new data type",
+      "Declares a constant"
+    ],
+    "solution": "Defines a new data type"
+  },
+  {
+    "question": "What is the output of the following C++ code? <br> <code>#include &lt;iostream&gt;<br><br>int main() {<br>    int *ptr = new int(5);<br>    std::cout &lt;&lt; *ptr &lt;&lt; std::endl;<br>    delete ptr;<br>    return 0;<br>}</code>",
+    "options": [
+      "5",
+      "0",
+      "Error",
+      "Undefined behavior"
+    ],
+    "solution": "5"
+  },
+  {
+    "question": "What is the purpose of the \"lambda\" function in Python?",
+    "options": [
+      "Declares a new class",
+      "Defines an anonymous function",
+      "Retrieves the type of an object",
+      "Converts a string to uppercase"
+    ],
+    "solution": "Defines an anonymous function"
+  },
+  {
+    "question": "How do you achieve multiple inheritance in Java?",
+    "options": [
+      "By using the \"implements\" keyword",
+      "By using the \"extends\" keyword",
+      "Java does not support multiple inheritance",
+      "By using the \"inherits\" keyword"
+    ],
+    "solution": "Java does not support multiple inheritance"
+  },
+  {
+    "question": "What is the value of x after executing the following Java code? <br> <code>int x = 5;<br>System.out.println(++x + x++);</code>",
+    "options": [
+      "10",
+      "11",
+      "12",
+      "13"
+    ],
+    "solution": "11"
+  },
+  {
+    "question": "What is the difference between \"==\" and \".equals()\" when comparing objects in Java?",
+    "options": [
+      "There is no difference, they are used interchangeably",
+      "\"==\" compares object references, while \".equals()\" compares object contents",
+      "\".equals()\" compares object references, while \"==\" compares object contents",
+      "They both compare object contents but in different ways"
+    ],
+    "solution": "\"==\" compares object references, while \".equals()\" compares object contents"
+  },
+  {
+    "question": "What does the \"sizeof\" operator return in C?",
+    "options": [
+      "The size of a variable in bytes",
+      "The number of elements in an array",
+      "The size of a data type in bytes",
+      "The memory address of a variable"
+    ],
+    "solution": "The size of a data type in bytes"
+  },
+  {
+    "question": "What is function overloading in C++?",
+    "options": [
+      "Defining multiple functions with the same name but different return types",
+      "Defining multiple functions with the same name but different parameters",
+      "Defining multiple functions with the same name and same parameters",
+      "Defining a function within another function"
+    ],
+    "solution": "Defining multiple functions with the same name but different parameters"
+  },
+  {
+    "question": "What is the purpose of the \"enumerate()\" function in Python?",
+    "options": [
+      "Generates a sequence of numbers",
+      "Iterates over a sequence while keeping track of the index",
+      "Converts a string to a list",
+      "Checks if an element exists in a sequence"
+    ],
+    "solution": "Iterates over a sequence while keeping track of the index"
+  },
+  {
+    "question": "What is the value of result after executing the following Java code? <br> <code>int x = 5;<br>int y = 10;<br>boolean result = (x > 3) && (y < 20) || (x + y == 15);</code>",
+    "options": [
+      "true",
+      "false"
+    ],
+    "solution": "true"
+  },
+  {
+    "question": "What is the purpose of the \"static\" keyword when applied to a method in Java?",
+    "options": [
+      "It indicates that the method can be overridden.",
+      "It indicates that the method belongs to the class, not to instances of the class.",
+      "It indicates that the method cannot be accessed from outside the class.",
+      "It indicates that the method cannot be accessed by other classes."
+    ],
+    "solution": "It indicates that the method belongs to the class, not to instances of the class."
+  },
+  {
+    "question": "What is the output of the following C code? <code><br><br>#include <stdio.h><br>int main() {<br>&nbsp;&nbsp;&nbsp;&nbsp;int x = 10;<br>&nbsp;&nbsp;&nbsp;&nbsp;int *ptr = &x;<br>&nbsp;&nbsp;&nbsp;&nbsp;printf(\"%d\", *ptr);<br>&nbsp;&nbsp;&nbsp;&nbsp;return 0;<br>}</code>",
+    "options": [
+      "0",
+      "10",
+      "Error",
+      "Garbage value"
+    ],
+    "solution": "10"
+  },
+  {
+    "question": "What is the difference between a class and a struct in C++?",
+    "options": [
+      "Classes have members private by default, while structs have members public by default.",
+      "Classes cannot have member functions, while structs can.",
+      "Classes support inheritance, while structs do not.",
+      "There is no difference between a class and a struct."
+    ],
+    "solution": "Classes have members private by default, while structs have members public by default."
+  },
+  {
+    "question": "What is the purpose of the \"__name__\" variable in Python?",
+    "options": [
+      "It stores the name of the module.",
+      "It stores the name of the function.",
+      "It stores the name of the class.",
+      "It stores the name of the package."
+    ],
+    "solution": "It stores the name of the module."
+  }
+]}

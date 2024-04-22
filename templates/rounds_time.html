@@ -43,26 +43,16 @@
     <h1>Coding Competition Rounds</h1>
     <div id="rounds">
         <div class="round">
-            <h2>Round 1</h2>
-            <button id="round1Btn" onclick="startRound(1)" disabled>Start Round 1</button>
+            <h2>Round 2</h2>
+            <button id="round1Btn" onclick="startRound(2)" disabled>Start Round 2</button>
             <p id="time1"></p>
         </div>
-        <div class="round">
-            <h2>Round 2</h2>
-            <button id="round2Btn" onclick="startRound(2)" disabled>Start Round 2</button>
-            <p id="time2"></p>
-        </div>
-        <div class="round">
-            <h2>Round 3</h2>
-            <button id="round3Btn" onclick="startRound(3)" disabled>Start Round 3</button>
-            <p id="time3"></p>
-        </div>
+        
     </div>
 
     <script>
         var round1StartTime = new Date('2024-04-14T07:25:00');
         var round2StartTime = new Date('2024-04-14T14:30:00');
-        var round3StartTime = new Date('2024-04-14T22:00:00');
 
         function updateTimer(elementId, startTime, buttonId) {
             var timerElement = document.getElementById(elementId);
@@ -86,7 +76,7 @@
         setInterval(function() {
             updateTimer('time1', round1StartTime, 'round1Btn');
             updateTimer('time2', round2StartTime, 'round2Btn');
-            updateTimer('time3', round3StartTime, 'round3Btn');
+            
         }, 1000);
 
         function startRound(roundNumber) {
@@ -97,9 +87,7 @@
                 case 2:
                     window.location.href = "round2login";
                     break;
-                case 3:
-                    window.location.href = "round3login";
-                    break;
+               
                 default:
                     alert("Invalid round number");
                     break;

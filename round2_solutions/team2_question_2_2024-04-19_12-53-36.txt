@@ -1,0 +1,31 @@
+Team Name: team2
+Submission Time: 2024-04-19_12-53-36
+Question Number: 2
+Language: java
+
+Code:
+import java.util.Scanner;
+        
+        public class team2_Main {
+        
+            public static int factorial(int n) {
+                if (n == 0) {
+                    return 1; 
+                } else {
+                    return n * factorial(n - 1); 
+                }
+            }
+        
+            public static void main(String[] args) {
+                Scanner scanner = new Scanner(System.in); 
+                int num=0; 
+        
+                System.out.print("Enter a number: ");
+        
+                num = scanner.nextInt();
+        
+                int result = factorial(num);
+        
+                System.out.print("Factorial of " + num + " is " + result);
+            }
+        }

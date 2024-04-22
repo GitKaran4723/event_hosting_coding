@@ -19,13 +19,16 @@ mysql_connection = mysql.connector.connect(
 fest_start_time = datetime(2024, 4, 19, 9, 0)
 
 #round1
-round1_start_time = datetime(2024, 4, 18, 17, 30)
-round1_end_time = datetime(2024, 4, 18, 17, 40)
+round1_start_time = datetime(2024, 4, 19, 12, 00)
+round1_end_time = datetime(2024, 4, 19, 12, 15)
 
+#round2
+round2_start_time = datetime(2024, 4, 19, 12, 42)
+round2_end_time = datetime(2024, 4, 19, 1, 10)
 
-#round3
-round3_start_time = datetime(2024, 4, 17, 14, 47)
-round3_end_time = datetime(2024, 4, 17, 14, 51)
+#round3 
+round3_start_time = datetime(2024, 4, 18, 21, 57)
+round3_end_time = datetime(2024, 4, 18, 22, 00)
 
 
 @app.route('/')
@@ -144,7 +147,7 @@ def logout3():
 import json
 
 # Open the JSON file for reading
-with open('questions1.json', 'r') as file:
+with open('questions12.json', 'r') as file:
     # Load JSON data from the file
     quizQuestions = json.load(file)
 
@@ -195,7 +198,7 @@ def save_responses_and_score(team_name, responses, score):
     cursor.close()
 
 # Open the JSON file for reading
-with open('questions2.json', 'r') as file:
+with open('questions.json', 'r', encoding='utf-8') as file:
     # Load JSON data from the file
     debug_qns = json.load(file)
 
@@ -294,7 +297,8 @@ def run():
         
         # Return the results as JSON
         return jsonify(results)
-    
+
+
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -566,6 +570,34 @@ def score():
     
     except Exception as e:
         return render_template('submitted.html')
+
+@app.route('/submit2', methods=['POST'])
+def submit2():
+    if request.method == 'POST':
+        language = request.json['language']
+        code = request.json['code']
+        question_number = request.json['questionNumber']
+        question_number_int = int(question_number)
+        team_name = session['team_name']
+        submission_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+
+        # Store the results and other information in a text file
+        file_name = f"{team_name}_question_{question_number_int+1}_{submission_time}.txt"
+        folder_path = "round2_solutions"
+        if not os.path.exists(folder_path):
+            os.makedirs(folder_path)
+
+        with open(os.path.join(folder_path, file_name), 'w') as file:
+            file.write(f"Team Name: {team_name}\n")
+            file.write(f"Submission Time: {submission_time}\n")
+            file.write(f"Question Number: {question_number_int + 1}\n")
+            file.write(f"Language: {language}\n")
+            file.write("\nCode:\n")
+            file.write(code)
+            
+        # Return the results as JSON
+        return jsonify({'message': f'Question {question_number_int + 1} submitted'}), 200
+
 
 if __name__ == "__main__":
     # Run the Flask app on localhost (local system)

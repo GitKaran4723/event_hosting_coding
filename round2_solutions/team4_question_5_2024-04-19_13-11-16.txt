@@ -1,0 +1,27 @@
+Team Name: team4
+Submission Time: 2024-04-19_13-11-16
+Question Number: 5
+Language: c
+
+Code:
+#include <stdio.h>
+        
+        void printArrayReverse(int arr[], int n) {
+          for (int i = n; i >= 0; i--) { 
+            printf("%d ", arr[i]);
+          }
+          printf("
+");  
+        }
+        
+        int main() {
+          int arr[] = {1, 2, 3, 4, 5};
+          int n = sizeof(arr) / sizeof(arr[0]);
+        
+          printf("Array in reverse order:
+");
+          printArrayReverse(arr;
+          
+          return 0;
+        }
+        

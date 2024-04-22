@@ -182,15 +182,14 @@
               <!-- Use a textarea to display the code -->
               <textarea class="code question{{ loop.index0 }}" name="code" rows="20" required spellcheck="false"></textarea>
             </div>
-            <button type="button" class="run" data-question="{{ loop.index0 }}">Run</button>
     
-            <button type="button" class="run1" data-question="{{ loop.index0 }}">Test with input</button>
+            <button type="button" class="run1" data-question="{{ loop.index0 }}">Test</button>
     
             <button type="button" class="submit" data-question="{{ loop.index0 }}">Submit</button>
             
             <div class="input-values-container" style="display: none;">
               <textarea class="input-values question{{ loop.index0 }}" name="input-values" rows="2" placeholder="Enter input values"></textarea>
-              <button type="button" class="submit-with-input" data-question="{{ loop.index0 }}">Run with Input</button>
+              <button type="button" class="submit-with-input" data-question="{{ loop.index0 }}">Run</button>
             </div>
             <div class="output"></div>
           </div>
@@ -198,10 +197,27 @@
       </div>
       {% endfor %}
     
-      <button type="submit">Final Submit</button>
+      <button type="button" onclick="logout2()">Final Submit</button>
     </div>
 
     <script>
+      function logout2() {
+        // Create a form element
+        var form = document.createElement('form');
+        form.method = 'POST';  // Set the form method to POST
+        form.action = '/logout2';  // Set the form action to the logout route
+    
+        // Add a hidden input field to ensure the form submission is recognized as a POST request
+        var csrfTokenInput = document.createElement('input');
+        csrfTokenInput.type = 'hidden';
+        csrfTokenInput.name = '_method';
+        csrfTokenInput.value = 'POST';
+        form.appendChild(csrfTokenInput);
+    
+        // Append the form to the document body and submit it
+        document.body.appendChild(form);
+        form.submit();
+    }
       // Calculate and display the time remaining until the test starts
       function calculateTimeRemaining() {
         // Get the current time and the start time of the test
@@ -479,49 +495,25 @@
         xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    var results = JSON.parse(xhr.responseText);
-                    console.log(results);
-                    
-                    // Clear previous output
-                    outputArea.innerHTML = '';
-                    
-                    // Iterate through the results
-                    results['results'].forEach(function(result) {
-                        // Create a new div element to display the result
-                        var resultDiv = document.createElement('div');
-                        resultDiv.classList.add('result');
-                        resultDiv.textContent = `Test Case: ${result.input} | Expected Output: ${result.expected_output} | Actual Output: ${result.actual_output} | Result: ${result.result}`;
-                        
-                        // Add green color for passed test cases and red color for failed ones
-                        if (result.result === 'pass') {
-                            resultDiv.style.color = 'green';
-                        } else {
-                            resultDiv.style.color = 'red';
-                        }
-                        
-
-                        // Append the result div to the output area
-                        outputArea.appendChild(resultDiv);
-                    });
-                    var scoreDiv = document.createElement('h2');
-                    scoreDiv.classList.add('score');
-                    scoreDiv.textContent = `Total Score: ${results['total_score']}/100`;
-                    outputArea.appendChild(scoreDiv);
-
-
+                  if (xhr.status === 200) {
+                    // Parse the JSON response from the server
+                    var jsonResponse = JSON.parse(xhr.responseText);
+                    // Display the message returned by the server
+                    outputArea.innerHTML = jsonResponse.message;                    
                 } else {
+                    // Display error message
                     outputArea.innerHTML = "<div style='color: red;'>Error: " + xhr.responseText + "</div>";
                 }
                 outputArea.classList.remove('loading'); // Remove loading class
             }
         };
 
-        xhr.open('POST', '/submit', true);
+        xhr.open('POST', '/submit2', true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(JSON.stringify({ code: code, language: language, questionNumber: questionNumber }));
     });
 });
+
     </script>
   </body>
 </html>

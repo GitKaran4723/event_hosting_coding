@@ -1,0 +1,36 @@
+Team Name: team5
+Submission Time: 2024-04-19_13-13-17
+Question Number: 4
+Language: cpp
+
+Code:
+#include <stdio.h>  
+#include <iostream>
+using namespace std;
+        
+        void bubble_sort(int arr[], int n) {
+          for (int i = 0; i < n; i++) {
+            for (int j = i; j < n-1; j++) { 
+              if (arr[j] > arr[j+1]) {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+              }
+            }
+          }
+}
+        
+        int main() {
+          int arr[] = {64, 34, 25, 12, 22, 11, 90};
+          int n = sizeof(arr);
+        
+          bubble_sort(arr, n); 
+        
+          printf("Sorted array: ");
+          for (int i = 0; i < n; i++) {
+            cout<<("%5d ", arr[i]);
+          }
+        
+          return 0;
+        }
+        

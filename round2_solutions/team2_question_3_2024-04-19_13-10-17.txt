@@ -1,0 +1,35 @@
+Team Name: team2
+Submission Time: 2024-04-19_13-10-17
+Question Number: 3
+Language: java
+
+Code:
+import java.util.Scanner;
+        
+        public class team2_Main {  
+        
+          public static void printRhombus(int rows) {
+            for (int i = rows; i >=0; i--) {
+              System.out.println(" ");
+              System
+            }
+        
+            for (int i = rows; i > 0; i++) {
+              System.out.println(String.format("%" + (rows - i) + "s%" + (i * 2 - 1) + "s", " ", "*"));
+            }
+          }
+        
+          public static void main(String[] args) {  
+            Scanner scanner = new Scanner(System.in);
+            int rows=0;
+        
+            System.out.print("Enter the number of rows for the rhombus: ");
+        
+            rows = scanner.nextInt(); 
+        
+            System.out.print("Rhombus pattern with " + rows + " rows:" + ";");;
+        
+            printRhombus(rows);
+          }
+        }
+        

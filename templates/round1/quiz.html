@@ -73,6 +73,11 @@
             font-size: 18px;
             font-weight: bold;
         }
+        code{
+            background-color: #f8f9fa;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
     </style>
 </head>
 <body>
@@ -84,7 +89,7 @@
         <form id="quiz-form" action="/submit_quiz" method="POST">
             {% for question in questions %}
             <div class="question-container {% if loop.index0 == 0 %}active-question{% endif %}">
-                <p>Question {{ loop.index  }}: {{ question['question'] }}</p>
+                <p>Question {{ loop.index  }}: {{ question['question'] | safe}}</p>
                 <ul>
                     <li><input type="radio" name="question{{ loop.index0 }}" value="{{ question['options'][0] }}" onclick="updateResponse({{ loop.index0 }}, this)"> {{ question['options'][0] }}</li>
                     <li><input type="radio" name="question{{ loop.index0 }}" value="{{ question['options'][1] }}" onclick="updateResponse({{ loop.index0 }}, this)"> {{ question['options'][1] }}</li>
